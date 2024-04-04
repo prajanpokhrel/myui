@@ -13,8 +13,8 @@ class Cards extends StatelessWidget {
       children: [
         Container(
           height: 10.h,
-          width: 90.w,
-          margin: EdgeInsets.only(left: 18),
+          width: 100.w,
+          // margin: EdgeInsets.only(left: 18),
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 248, 244, 244),
             borderRadius: BorderRadius.circular(30),

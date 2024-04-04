@@ -4,9 +4,16 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 // import 'package:flutter/material.dart';
 
-class Carousel extends StatelessWidget {
+class Carousel extends StatefulWidget {
   const Carousel({super.key});
 
+  @override
+  State<Carousel> createState() => _CarouselState();
+}
+
+class _CarouselState extends State<Carousel> {
+  // int _current = 0;
+  // final CarouselController _controller = CarouselController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,3 +54,31 @@ class Carousel extends StatelessWidget {
     );
   }
 }
+
+
+
+//  Container(
+//                         decoration: BoxDecoration(
+//                           gradient: LinearGradient(
+//                             colors: [
+//                               Color.fromARGB(200, 0, 0, 0),
+//                               Color.fromARGB(0, 0, 0, 0)
+//                             ],
+//                             begin: Alignment.bottomCenter,
+//                             end: Alignment.topCenter,
+//                           ),
+//                         ),
+//                         padding: EdgeInsets.symmetric(
+//                             vertical: 10.0, horizontal: 20.0),
+//                         child: Text(
+//                           'No. ${<String>[
+//                             "bankcard2",
+//                             "bank",
+//                           ].indexOf(item)} image',
+//                           style: TextStyle(
+//                             color: Colors.white,
+//                             fontSize: 20.0,
+//                             fontWeight: FontWeight.bold,
+//                           ),
+//                         ),
+//                       ),

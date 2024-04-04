@@ -112,22 +112,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text("Don't have an account?"),
                       TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Register(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Sign up',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Register(),
                             ),
-                          ))
+                          );
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
