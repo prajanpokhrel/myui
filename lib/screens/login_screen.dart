@@ -4,6 +4,7 @@ import 'package:my_ui/common/otherbutton.dart';
 import 'package:my_ui/common/text_field.dart';
 import 'package:my_ui/screens/homescreen.dart';
 import 'package:my_ui/screens/register.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -28,18 +29,24 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 CircleAvatar(
                   maxRadius: 80,
-                  backgroundImage: AssetImage("assets/lape.png"),
+                  backgroundImage: AssetImage("assets/prime.png"),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "LAPE",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  "PRIME BANK",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      fontFamily: "OpenSans"),
                 ),
-                Text(
-                  "Let's  Sign You In",
-                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                Padding(
+                  padding: EdgeInsets.only(right: 8.h, top: 1.h),
+                  child: Text(
+                    "Let's  Sign You In",
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
                 ),
                 SizedBox(height: 10),
                 SizedBox(

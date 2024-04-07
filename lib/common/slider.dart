@@ -1,61 +1,26 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SliderCards extends StatefulWidget {
-  const SliderCards({super.key});
+  const SliderCards({Key? key});
 
   @override
   State<SliderCards> createState() => _SliderCardsState();
 }
 
 class _SliderCardsState extends State<SliderCards> {
-  final List<Widget> imageSliders = <String>[
+  final List<Widget> imageSliders = [
     "assets/bankcard2.png",
     "assets/bank.png",
   ]
-      .map(
-        (item) => Container(
-          child: Container(
-            margin: EdgeInsets.all(5.0),
+      .map((item) => Container(
+            margin: const EdgeInsets.all(5.0),
             child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(200, 0, 0, 0),
-                            Color.fromARGB(0, 0, 0, 0)
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                        ),
-                      ),
-                      // padding: EdgeInsets.symmetric(
-                      //     vertical: 10.0, horizontal: 20.0),
-                      child: Text(
-                        ' ${<String>[
-                          "bankcard2",
-                          "bank",
-                        ].indexOf(item)} ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                )),
-          ),
-        ),
-      )
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+            ),
+          ))
       .toList();
   int _current = 0;
   final CarouselController _controller = CarouselController();
@@ -66,6 +31,7 @@ class _SliderCardsState extends State<SliderCards> {
         Container(
           padding: const EdgeInsets.only(left: 24, right: 24),
           child: CarouselSlider(
+            carouselController: _controller, // added this line
             options: CarouselOptions(
               height: 30.h,
               viewportFraction: 1,
@@ -74,6 +40,11 @@ class _SliderCardsState extends State<SliderCards> {
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal,
               autoPlay: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _current = index;
+                });
+              },
             ),
             items: imageSliders,
           ),
@@ -83,10 +54,7 @@ class _SliderCardsState extends State<SliderCards> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <String>[
-            "assets/bankcard2.png",
-            "assets/bank.png",
-          ].asMap().entries.map((entry) {
+          children: imageSliders.asMap().entries.map((entry) {
             return GestureDetector(
               onTap: () => _controller.animateToPage(entry.key),
               child: Container(

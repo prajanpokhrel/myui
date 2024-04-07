@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class RecerntActivity extends StatelessWidget {
+class RecentActivity extends StatelessWidget {
   final String name;
   final String image;
   final String stockoption;
@@ -12,7 +12,7 @@ class RecerntActivity extends StatelessWidget {
   final Color color;
   final Color background;
 
-  const RecerntActivity(
+  const RecentActivity(
       {super.key,
       required this.image,
       required this.money,

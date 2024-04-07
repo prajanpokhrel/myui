@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:my_ui/screens/primescreen.dart';
+import 'package:my_ui/screens/sendmoney.dart';
 
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -57,11 +59,21 @@ class Cards extends StatelessWidget {
                     height: 6.h,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 1.h, right: 20),
-                  child: const Text(
-                    "Deposit",
-                    style: TextStyle(fontWeight: FontWeight.normal),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SendMoneyScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.only(top: 1.h, right: 20),
+                    child: const Text(
+                      "Deposit",
+                      style: TextStyle(fontWeight: FontWeight.normal),
+                    ),
                   ),
                 ),
               ],

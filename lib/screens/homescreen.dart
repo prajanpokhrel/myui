@@ -1,21 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_ui/common/card.dart';
 import 'package:my_ui/common/recentactivity.dart';
 import 'package:my_ui/common/slider.dart';
-import 'package:my_ui/screens/carousel.dart';
+import 'package:my_ui/screens/primescreen.dart';
 
+import 'package:my_ui/screens/sendmoney.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: Container(
-        margin: EdgeInsets.only(left: 10.w, bottom: 3.h),
+        margin: EdgeInsets.only(left: 4.w, bottom: 4.h),
         child: MaterialButton(
           onPressed: () {},
           color: Colors.black,
@@ -30,10 +34,11 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
+        elevation: 0,
         leadingWidth: 200,
         leading: InkWell(
           onTap: () {},
-          child: Container(
+          child: SizedBox(
             width: 200.w,
             height: 20.h,
             child: Column(
@@ -97,6 +102,9 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 1.h,
+            ),
             Center(
               child: SliderCards(),
             ),
@@ -125,7 +133,7 @@ class HomeScreen extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.only(
                                     left: 6.w, top: 2.h, bottom: 2.h),
-                                child: Text(
+                                child: const Text(
                                   "Recent acitivity",
                                   style: TextStyle(
                                       fontSize: 18,
@@ -148,12 +156,12 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          Container(
+                          SizedBox(
                             height: 20.h,
-                            child: SingleChildScrollView(
+                            child: const SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  RecerntActivity(
+                                  RecentActivity(
                                     image: "assets/logo1.png",
                                     name: "Apple Stock",
                                     stockoption: "0.545 Stock options",
@@ -163,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                                     color: Colors.red,
                                     background: Colors.black,
                                   ),
-                                  RecerntActivity(
+                                  RecentActivity(
                                     image: "assets/ethereum.png",
                                     name: "Ethereum(ETH)",
                                     stockoption: "0.002 crypto com",
@@ -174,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                                     background:
                                         Color.fromARGB(255, 141, 209, 143),
                                   ),
-                                  RecerntActivity(
+                                  RecentActivity(
                                     image: "assets/ethereum.png",
                                     name: "Ethereum(ETH)",
                                     stockoption: "0.002 crypto com",
@@ -203,23 +211,27 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.grey,
-              ),
-              label: "Home"),
+            icon: Icon(
+              Icons.home,
+              color: Colors.grey,
+            ),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.credit_card_rounded,
               color: Colors.grey,
             ),
-            label: 'cards',
+            label: 'Cards',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.graphic_eq_outlined,
+              Icons.graphic_eq,
               color: Colors.grey,
             ),
             label: 'Graph',
@@ -232,6 +244,35 @@ class HomeScreen extends StatelessWidget {
             label: 'Profile',
           ),
         ],
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SendMoneyScreen(),
+                ),
+              );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PrimeScreen(),
+                ),
+              );
+              break;
+            case 3:
+              Navigator.pushNamed(context, '/profile');
+              break;
+          }
+        },
       ),
     );
   }
