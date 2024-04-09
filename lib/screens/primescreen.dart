@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui/common/card.dart';
+
 import 'package:my_ui/common/drawer.dart';
 
 class PrimeScreen extends StatefulWidget {
@@ -14,15 +15,17 @@ class _PrimeScreenState extends State<PrimeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-            child: Text(
-          "Prime Bank",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )),
+        title: const Center(
+          child: Text(
+            "Prime Bank",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: Column(
         children: [
-          Cards(),
+          Cards()
+          // Graph(),
         ],
       ),
       drawer: MyDrawer(),

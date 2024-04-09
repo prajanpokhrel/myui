@@ -8,7 +8,7 @@ class PrimeCards extends StatefulWidget {
   final bool tap;
   final VoidCallback onTap;
 
-  PrimeCards({
+  const PrimeCards({
     Key? key,
     required this.name,
     required this.id,
@@ -30,8 +30,9 @@ class _PrimeCardsState extends State<PrimeCards> {
         padding: EdgeInsets.only(left: 1.w, right: 1.w),
         child: ListTile(
           selected: widget.tap,
-          selectedTileColor:
-              widget.tap ? Color.fromARGB(255, 201, 224, 169) : Colors.white,
+          selectedTileColor: widget.tap
+              ? const Color.fromARGB(255, 201, 224, 169)
+              : Colors.white,
           selectedColor: Colors.black,
           shape: OutlineInputBorder(
             borderSide: BorderSide.none,

@@ -12,7 +12,7 @@ class Mybutton extends StatelessWidget {
     return Container(
       height: 10.h,
       width: 200.w,
-      margin: EdgeInsets.only(right: 12),
+      margin: EdgeInsets.only(right: 8.w),
       decoration: BoxDecoration(
           color: Colors.black, borderRadius: BorderRadius.circular(20)),
       child: InkWell(

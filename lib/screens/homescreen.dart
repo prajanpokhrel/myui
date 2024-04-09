@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui/common/card.dart';
+
 import 'package:my_ui/common/recentactivity.dart';
 import 'package:my_ui/common/slider.dart';
-import 'package:my_ui/screens/primescreen.dart';
+import 'package:my_ui/graphs/graph.dart';
 
 import 'package:my_ui/screens/sendmoney.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -214,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
@@ -264,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PrimeScreen(),
+                  builder: (context) => Graph(),
                 ),
               );
               break;

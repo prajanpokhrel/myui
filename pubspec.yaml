@@ -41,6 +41,8 @@ dependencies:
   fan_carousel_image_slider: ^0.1.2
   carousel_indicator: ^1.0.6
   multi_dropdown: ^2.1.4
+  syncfusion_flutter_charts: ^25.1.38
+  fl_chart: ^0.67.0
   
   
 dev_dependencies:
