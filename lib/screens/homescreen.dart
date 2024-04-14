@@ -4,6 +4,7 @@ import 'package:my_ui/common/card.dart';
 import 'package:my_ui/common/recentactivity.dart';
 import 'package:my_ui/common/slider.dart';
 import 'package:my_ui/graphs/graph.dart';
+import 'package:my_ui/screens/dashboard.dart';
 
 import 'package:my_ui/screens/sendmoney.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -121,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Container(
-                      height: 39.h,
+                      height: 45.h,
                       width: 100.w,
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 248, 244, 244),
@@ -270,7 +271,12 @@ class _HomeScreenState extends State<HomeScreen> {
               );
               break;
             case 3:
-              Navigator.pushNamed(context, '/profile');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DashBoardPage(),
+                ),
+              );
               break;
           }
         },

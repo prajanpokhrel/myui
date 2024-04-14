@@ -50,8 +50,8 @@ class GraphState extends State<Graph> {
                       dataLabelSettings: DataLabelSettings(isVisible: true))
                 ],
               ),
-              ColumnGraph(),
-              PieChartWidget()
+              const ColumnGraph(),
+              const PieChartWidget()
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_ui/screens/general_screen.dart';
 
 import 'package:my_ui/screens/primescreen.dart';
 import 'package:my_ui/screens/sendmoney.dart';
@@ -64,7 +65,7 @@ class Cards extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SendMoneyScreen(),
+                        builder: (context) => GeneralScreen(),
                       ),
                     );
                   },

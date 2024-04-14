@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return MaterialApp(
             debugShowCheckedModeBanner: false,
-            // theme: ThemeData(fontFamily: "OpenSans"),
+            theme: ThemeData(
+              scaffoldBackgroundColor: Color.fromARGB(255, 235, 229, 229),
+            ),
             home: Register());
       },
     );
