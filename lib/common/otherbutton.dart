@@ -7,41 +7,25 @@ class OtherButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      width: 120,
-      margin: EdgeInsets.only(right: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-        boxShadow: [
-          BoxShadow(
-            // color: Colors.red,
-
-            spreadRadius: 0.5,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+        side: BorderSide(style: BorderStyle.solid),
+        borderRadius: BorderRadius.circular(12),
+      )),
+      onPressed: () {},
+      child: Row(
+        children: [
+          Image.asset(
+            images,
+            width: 16,
+            height: 16,
+          ),
+          Text(
+            button,
+            style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ],
-        color: Colors.white,
-      ),
-      child: InkWell(
-        onTap: () {},
-        child: Center(
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Image.asset(
-                  images,
-                  width: 16,
-                  height: 16,
-                ),
-              ),
-              Text(
-                button,
-                style: TextStyle(color: Colors.black, fontSize: 20),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

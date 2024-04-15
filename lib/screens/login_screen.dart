@@ -119,21 +119,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          OtherButton(
-                            button: 'Google',
-                            images: 'assets/search.png',
-                          ),
-                          OtherButton(
+                    Row(
+                      children: [
+                        OtherButton(
+                          button: 'Google',
+                          images: 'assets/search.png',
+                        ),
+                        Spacer(),
+                        Padding(
+                          padding: EdgeInsets.only(right: 4.h),
+                          child: OtherButton(
                             button: 'Apple',
                             images: 'assets/apple.png',
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 20,

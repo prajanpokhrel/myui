@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_ui/common/card.dart';
 
 import 'package:my_ui/common/recentactivity.dart';
@@ -8,6 +10,7 @@ import 'package:my_ui/screens/dashboard.dart';
 
 import 'package:my_ui/screens/sendmoney.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:dio/dio.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +20,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final dio = Dio();
+  Future<Map<String, dynamic>> getdatas() async {
+    try {
+      Response response = await dio.get('https://reqres.in/api/users/2');
+      return response.data;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  @override
+  void initState() {
+    getdatas();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,16 +106,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 3.h),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    radius: 25,
-                    backgroundImage: AssetImage('assets/boy.png'),
-                  ),
-                ),
-              ),
+              FutureBuilder(
+                  future: getdatas(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return CircularProgressIndicator(
+                        color: Colors.black,
+                        strokeWidth: 4,
+                      );
+                    }
+                    if (snapshot.hasError) {
+                      return Text(snapshot.error.toString());
+                    }
+                    final image = snapshot.data!["data"]["avatar"];
+
+                    return Padding(
+                      padding: EdgeInsets.only(right: 3.h),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage('$image'),
+                        ),
+                      ),
+                    );
+                  }),
             ],
           )
         ],
